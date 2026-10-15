@@ -12,9 +12,9 @@ class Project extends StatefulWidget {
 }
 
 class MyProject extends State<Project> {
-  TextEditingController USERID = TextEditingController();
-  TextEditingController Password = TextEditingController();
-  bool ShowOrNotCombiningButton = false;
+  TextEditingController userID = TextEditingController();
+  TextEditingController password = TextEditingController();
+  bool showText = false;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -37,7 +37,7 @@ class MyProject extends State<Project> {
                     margin: const EdgeInsets.only(top: 30, bottom: 180),
                     child: const Text(
                       'LOGIN',
-                      overflow: TextOverflow.visible,
+                      // overflow: TextOverflow.visible,
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 25,
@@ -52,10 +52,10 @@ class MyProject extends State<Project> {
                       style: const TextStyle(color: Colors.white),
 
                       //! controller
-                      controller: USERID,
+                      controller: userID,
 
-                      //! enabled
-                      enabled: true,
+                      //! enabled, Its default state is true
+                      // enabled: true,
 
                       //! max length
                       // maxLength: 10,
@@ -142,7 +142,7 @@ class MyProject extends State<Project> {
                       enabled: true,
 
                       //! controller
-                      controller: Password,
+                      controller: password,
 
                       //! max length
                       // maxLength: 10,
@@ -182,7 +182,7 @@ class MyProject extends State<Project> {
                             )),
 
                         //! Hint text
-                        //   hintText: 'PASSWORD',
+                        //   hintText: 'password',
                         //   hintStyle: TextStyle(
                         //     color: Color.fromARGB(255, 255, 255, 255),
                         //     fontSize: 25,
@@ -228,7 +228,7 @@ class MyProject extends State<Project> {
                     // color: Colors.white,
                     onPressed: () {
                       setState(() {
-                        ShowOrNotCombiningButton = !ShowOrNotCombiningButton;
+                        showText = !showText;
                       });
                     },
                     child: const Text(
@@ -244,15 +244,15 @@ class MyProject extends State<Project> {
                   ),
 
                   //! Text widget inside if statement
-                  if (ShowOrNotCombiningButton == true) ...[
+                  if (showText == true) ...[
                     Text(
-                      '${USERID.text} ${Password.text}',
+                      '${userID.text} ${password.text}',
                       style: const TextStyle(color: Colors.white),
                     )
                   ],
 
                   //! Text
-                  Text('${USERID.text} ${Password.text}'),
+                  // Text('${userID.text} ${password.text}'),
                 ],
               ),
             ),
